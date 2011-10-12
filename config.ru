@@ -1,6 +1,6 @@
 $: << '.'
-$: << 'lib'
-
+$: << File.expand_path('lib', File.dirname(__FILE__))
+require 'bundler/setup'
 require 'moxy'
 require 'moxy/app'
 
@@ -12,6 +12,3 @@ end
 map "/__setup__" do
   run Moxy::App
 end
-
-
-

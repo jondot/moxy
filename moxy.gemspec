@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Moxy::VERSION
   s.authors     = ["Dotan Nahum"]
   s.email       = ["jondotan@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/jondot/moxy"
   s.summary     = %q{Moxy is a mock (programmable) proxy}
   s.description = %q{Moxy is a mock (programmable) proxy}
 
@@ -20,5 +20,16 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_dependency "sinatra"
+  s.add_dependency "fakefs"
+  s.add_dependency "webmock"
+
+
+  s.add_development_dependency "sinatra-reloader"
+  s.add_development_dependency "rack-test"
+  s.add_development_dependency "rr"
+  s.add_development_dependency "watchr"
+  s.add_development_dependency "simplecov"
+  s.add_development_dependency "simplecov-html"
+
 end
