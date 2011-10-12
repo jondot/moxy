@@ -1,0 +1,7 @@
+$: << '.'
+$: << '../lib'
+
+require 'rack'
+Rack::Server.start :config => File.expand_path('../config.ru', File.dirname(__FILE__)), 
+				   :Host => ARGV[0] || "0.0.0.0",
+				   :Port => ARGV[1] || 9292 
