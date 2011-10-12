@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Moxie</title>
+
+    <link href="<%= path_prefix %>/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+      #editor {
+        width: 935px;
+        height: 400px;
+        position:relative;
+      }
+      .right { float:right; }
+      .well:after{ clear:both;}
+      .well:before, .well:after {
+        display: table;
+        content: "";
+        zoom: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <%= yield %>
+      <footer>
+        <p>&copy; Company 2011</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+

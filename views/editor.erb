@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="span16">
+  <h1>Stub your requests</h1>
+    <div id="editor"><%= params[:mock_text] %></div>
+
+    <form id="code" method="post" action="<%= path_prefix %>">
+      <input type="hidden" id="mock_text" name="mock_text"></textarea><br/>
+    </form>
+
+    <div class="well">
+      <div class="right">
+        <em><%= @numreqs == 0 ? 'no' : @numreqs %> request(s)</em> are set up. 
+        <% if @numreqs > 0 %>
+          <a href="<%= path_prefix %>/current">See what's currently set up.</a>
+        <% end %>
+        &nbsp;&nbsp;
+        <a class="btn primary large" onclick="$('#mock_text').val($editor.getSession().getValue());$('#code').submit();">Set Up!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="<%= path_prefix %>/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="<%= path_prefix %>/js/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="<%= path_prefix %>/js/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+<script src="<%= path_prefix %>/js/mode-ruby.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+window.onload = function() {
+  $editor = ace.edit("editor");
+  $editor.setTheme("ace/theme/monokai");
+  var RubyMode = require("ace/mode/ruby").Mode;
+  $editor.getSession().setMode(new RubyMode());
+  $editor.setShowPrintMargin(false);
+  $editor.setHighlightActiveLine(false);
+  document.getElementById('editor').style.fontSize='14px';
+};
+</script>
