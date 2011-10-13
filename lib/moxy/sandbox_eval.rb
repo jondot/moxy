@@ -29,6 +29,7 @@ module Moxy
         $stdout = StringIO.new
 
         result = Thread.new { eval cmd, TOPLEVEL_BINDING }.value
+        [:ok, result]
       rescue SecurityError => e
         return [:illegal, e]
       rescue Exception => e

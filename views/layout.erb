@@ -26,17 +26,42 @@
         background:#fff;
         box-shadow:none;
       }
+      .thumb{
+        margin-bottom:-16px;
+      }
+      h1 em { font-weight:bold;  color:red; font-style:normal;}
     </style>
   </head>
 
   <body>
     <div class="container">
+      <div class="row">
+        <div class="span16">
+          <h1>moxy <em><%= @page %></em></h1>
+          <br/>
+          <% if flash.has? :error %>
+            <div data-alert class="alert-message error">
+              <a class="close" href="#">×</a>
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+
+          <% if flash.has? :notice %>
+            <div data-alert class="alert-message success">
+              <a class="close" href="#">×</a>
+              <p><%= flash[:notice] %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    
       <%= yield %>
       <footer>
-        <p>&copy; Company 2011</p>
+        <p><img class="thumb" src="<%= path_prefix %>/img/moxypixy.png"/> <a href="https://github.com/jondot/moxy">moxy</a> &copy; <a href="http://gplus.to/dotan">Dotan Nahum</a> <a href="http://twitter.com/jondot">(@jondot)</a> 2011. Code is MIT licensed.</p>
       </footer>
 
     </div> <!-- /container -->
+    <script src="<%= path_prefix %>/js/bootstrap-alerts.js" type="text/javascript" charset="utf-8"></script>
 
   </body>
 </html>

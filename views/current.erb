@@ -1,10 +1,12 @@
+<% @page = "currently set-up requests" %>
+
 <div class="row">
   <div class="span16">
     <% @reqs.each do |r| %>
-      <h1><%= r %></h1>
+      <h2><%= r %></h2>
     <% end %>
 
-    <div class="well">
+    <div class="well simple-well">
       <div class="right">
         <a href="<%= path_prefix %>/reset" class="btn primary large">Clear all</a> or <a href="<%= path_prefix %>">go set up some more</a>
       </div>

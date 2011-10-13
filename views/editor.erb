@@ -1,8 +1,9 @@
+<% @page = "stub requests" %>
 <div class="row">
   <div class="span16">
-  <h1>Stub your requests</h1>
-    <div id="editor"><%= params[:mock_text] %></div>
+    
 
+    <div id="editor"><%= params[:mock_text] %></div>
     <form id="code" method="post" action="<%= path_prefix %>">
       <input type="hidden" id="mock_text" name="mock_text"></textarea><br/>
     </form>

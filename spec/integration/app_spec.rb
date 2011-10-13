@@ -13,7 +13,7 @@ describe Moxy::App do
       stub_request(:get, "http://example.org").to_return(:body=>"hello")
     EOF
 
-    post '/', {:webmock_text=>script}
+    post '/', {:mock_text=>script}
 
     WebMock::StubRegistry.instance.request_stubs.size.must_equal 1
     WebMock::StubRegistry.instance.request_stubs.first.response.body.must_equal "hello"

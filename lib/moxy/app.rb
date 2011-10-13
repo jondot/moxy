@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'rack-flash'
 require 'sinatra/reloader'
 require 'moxy/sandbox_eval'
 
@@ -8,6 +9,8 @@ module Moxy
     filedir = File.dirname(__FILE__)
     set :public_folder, File.expand_path("../../public", filedir)
     set :views, File.expand_path("../../views", filedir)
+    enable :sessions
+    use Rack::Flash
 
     configure(:development) do
       register Sinatra::Reloader
@@ -51,8 +54,14 @@ module Moxy
     end
 
     post '/' do
-      res = SandboxEval.new(development?).evaluate(params[:mock_text]) if params[:mock_text]
-      #todo flash
+      flag, res = SandboxEval.new(development?).evaluate(params[:mock_text]) if params[:mock_text]
+      
+      if(flag == :ok)
+        flash[:notice] = "Your request #{res} have been registered."
+      elsif
+        flash[:error]  = "Error registering this request: #{res}"
+        headers 'x-moxy-errors' => "#{flag}: #{res}"
+      end
       redirect path_prefix
     end
   end
