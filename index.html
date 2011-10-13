@@ -1,6 +1,6 @@
 <html lang="en"><head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>moxy</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -59,7 +59,7 @@
             
 
 
-            <h3>As a gem</h3>
+            <h3>As a system executable</h3>
 
             <p>
 <pre class="prettyprint">
@@ -80,41 +80,31 @@ $ cd moxy; rackup
         <br/><br/>
         <h1>Using Moxy</h1>
         <p>
-        The basic principle of using moxy goes about instructing moxy to stub your expected requests for you, and then setting it up as a HTTP proxy.
-        </p>
-        
-        <h3>Telling Moxy How to Behave</h3>
-        <p>
-        You have many ways to <em>program</em> moxy. All of those must conclude to a POST to your <code>http://moxy-host:port/__setup__</code> endpoint.
-        </p>
-        <p>
-        Here is a bonus: when you navigate to <code>http://moxy-host:port/__setup__</code> in your browser, you end up in your moxy console. You can program and manage moxy using a sleek interface!.
+        You have many ways to <em>program</em> moxy. All of those must conclude to a POST to your <code>http://moxy-host:port/__setup__</code> endpoint with as POST variable named <code>mock_text</code>.
         </p>
 
-        <h3>Moxy's Language</h3>
+        <h3>Moxy's Language (or: what to put in mock_text)</h3>
         
-        Return an empty content with <code>200</code> HTTP status code.
+        Return an empty content with <code>200</code> HTTP status code:<br/><br/>
 <pre class="prettyprint">
 stub_request :get, "http://google.com"
 </pre>
 
 
-        Return <code>boo hoo!</code> as content..
+        Return <code>boo hoo!</code> as content:<br/><br/>
 <pre class="prettyprint">
 stub_request(:get, "http://google.com").to_return(:body => "boo hoo!")
 </pre>
 
-        When <code>POST</code>ing to <code>http://google.com</code> return <code>boo hoo!</code> with <code>500</code> HTTP status code.
+        When <code>POST</code>ing to <code>http://google.com</code> return <code>boo hoo!</code> with <code>500</code> HTTP status code:<br/><br/>
 <pre class="prettyprint">
 stub_request(:get, "http://google.com").to_return(:body => "boo hoo!", :code => 500)
 </pre>
- <a href="https://github.com/jondot/moxy">Find out more</a> on Github.
 
-
-        <br/><br/>
-        <h1>Whats Next?</h1>
+        <h3>Find out more</h3>
+        <p>
         Moxy can become a very powerful tool for daily tasks or automated testing. <a href="https://github.com/jondot/moxy">Check out moxy at Github</a> for more details and examples.
-
+        </p>
 
 
 
