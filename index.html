@@ -101,6 +101,10 @@ stub_request(:get, "http://google.com").to_return(:body => "boo hoo!")
 stub_request(:get, "http://google.com").to_return(:body => "boo hoo!", :code => 500)
 </pre>
 
+        <h3>Use it!</h3>
+        <p>
+        To see moxy in action, set up your <code>http://moxy-host:port</code> as a system proxy, or a proxy in your HTTP library in your code.
+        </p>
         <h3>Find out more</h3>
         <p>
         Moxy can become a very powerful tool for daily tasks or automated testing. <a href="https://github.com/jondot/moxy">Check out moxy at Github</a> for more details and examples.
