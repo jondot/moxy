@@ -1,0 +1,139 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/prettify.css" type="text/css" rel="stylesheet" />
+
+
+    <style type="text/css">
+      body {
+        padding-top: 80px;
+      }
+      .container{
+        width:820px;
+      }
+      .hero-unit{
+        background:#fff;
+        border:1px solid #eee;
+      }
+      pre{padding:1em !important;}
+      .thumb{margin-bottom:-16px;}
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <img src="images/moxy.png" style="margin-left:-12px"/>
+        <p>Moxy (or <code>moxy</code>) is a programmable mock proxy. It is an HTTP proxy exposing web hooks that you can use in order to tell it what to do, and when to do it.</p>
+        <p><a class="btn primary large" href="https://github.com/jondot/moxy">Learn more »</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span14">
+          <h1>Setting Up</h1>
+          <p>
+            Moxy can be used as a system executable or a deployable web app.
+          </p>
+          <p>
+            Run <code>gem install moxy</code> and then you can run <code>moxy</code> from your terminal. A useful scenario for running as a system executable is having several instances for many scenarios and applications.  
+          </p>
+            
+
+
+            <h3>As a gem</h3>
+
+            <p>
+<pre class="prettyprint">
+$ moxy  # no arguments, default to localhost, 9292
+$ moxy integration-notifier.dev.com 3000 
+</pre>
+            </p>
+            <h3>Deploying as a webapp</h3>
+            <p>
+<pre class="prettyprint">
+$ git clone https://github.com/jondot/moxy
+$ cd moxy; rackup
+</pre>
+           A good scenario for deploying as a web app is on a dedicated integration server.  
+            Moxy will run on any rack handler.
+          </p>
+
+        <br/><br/>
+        <h1>Using Moxy</h1>
+        <p>
+        The basic principle of using moxy goes about instructing moxy to stub your expected requests for you, and then setting it up as a HTTP proxy.
+        </p>
+        
+        <h3>Telling Moxy How to Behave</h3>
+        <p>
+        You have many ways to <em>program</em> moxy. All of those must conclude to a POST to your <code>http://moxy-host:port/__setup__</code> endpoint.
+        </p>
+        <p>
+        Here is a bonus: when you navigate to <code>http://moxy-host:port/__setup__</code> in your browser, you end up in your moxy console. You can program and manage moxy using a sleek interface!.
+        </p>
+
+        <h3>Moxy's Language</h3>
+        
+        Return an empty content with <code>200</code> HTTP status code.
+<pre class="prettyprint">
+stub_request :get, "http://google.com"
+</pre>
+
+
+        Return <code>boo hoo!</code> as content..
+<pre class="prettyprint">
+stub_request(:get, "http://google.com").to_return(:body => "boo hoo!")
+</pre>
+
+        When <code>POST</code>ing to <code>http://google.com</code> return <code>boo hoo!</code> with <code>500</code> HTTP status code.
+<pre class="prettyprint">
+stub_request(:get, "http://google.com").to_return(:body => "boo hoo!", :code => 500)
+</pre>
+ <a href="https://github.com/jondot/moxy">Find out more</a> on Github.
+
+
+        <br/><br/>
+        <h1>Whats Next?</h1>
+        Moxy can become a very powerful tool for daily tasks or automated testing. <a href="https://github.com/jondot/moxy">Check out moxy at Github</a> for more details and examples.
+
+
+
+
+
+       <footer>
+          <p><img class="thumb" src="images/moxypixy.png"/> <a href="https://github.com/jondot/moxy">moxy</a> &copy; <a href="http://gplus.to/dotan">Dotan Nahum</a> <a href="http://twitter.com/jondot">(@jondot)</a> 2011. Code is MIT licensed.</p>
+          <br/>
+        </footer>
+
+
+        </div>
+
+        
+
+     
+
+    </div> <!-- /container -->
+
+  <script type="text/javascript" src="js/prettify.js"></script>
+  <script type="text/javascript">document.onload=function(){ prettyPrint();}</script>
+<a href="http://github.com/jondot/moxy"><img style="position:fixed;top:0;right:0;border:0;z-index:2;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+</body></html>
