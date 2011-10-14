@@ -1,12 +1,12 @@
 # Moxy
 
-Moxy or `moxy` is a programmable mock proxy. It is a proxy, exposed with web hooks that allow you to set up expectations on it, in terms of HTTP requests.  
+Moxy (or `moxy`) is a programmable mock proxy. It is an HTTP proxy exposing web hooks that you can use in order to tell it what to do, and when to do it.
 
 For example, you might want to set up that a request to `http://google.com` will return the text `boo hoo`. Thats easy:
 
-	$ curl -d "stub_request(:get, 'http://google.com').to_return(:body=>'boo hoo')" http://localhost:9292/__setup__
+  $ curl -d "mock_text=stub_request(:get, 'http://google.com').to_return(:body=>'boo hoo')" http://localhost:9292/__setup__ 
 
-However, moxy was not made for practical jokes. It was made in order to allow you to integrate such things in integration tests.
+However, moxy was not made just for one-offs. It was made in order to allow you to use such things in automated integration tests.
 
 Here is an example in Ruby:
 
@@ -22,7 +22,7 @@ Here is an example in Ruby:
 		r.code.must_equal 401
 	end
 
-See more in `/examples`.  
+See more languages and use cases in `/examples`.  
 
 
 But these kind of things can already be done using `rack-test`, and other abstraction/mocking frameworks in other languages. Moxy can be an **extremely fitting** answer to your problems when:
@@ -38,31 +38,40 @@ But these kind of things can already be done using `rack-test`, and other abstra
 
 ## Getting Started
 
-Moxy can be used as a system executable or a deployable web app.  
-
-A useful scenario for running as a gem is having several instances for many scenarios and applications.  
-
-A good scenario for deploying as a web app is on a dedicated integration server.  
+Run `gem install moxy`
 
 
-### As a gem
-
-Run `gem install moxy` and then you can run moxy from your terminal:
+### As a system executable
 
 	$ moxy  # no arguments, default to localhost, 9292
 	$ moxy integration-notifier.dev.com 3000 
 
-### Deploying as a webapp
+### As a Web app
 
-Moxy will run on any rack handler:
-	
 	$ git clone https://github.com/jondot/moxy
 	$ cd moxy; rackup
+
+A web app is great for a dedicated integration server. Moxy will run on any rack handler.
 
 
 
 ## Using Moxy
 
+1. Set `http://moxy-host:port` as a system proxy, or a proxy in your HTTP library in your code.
+2. Issue any number of POSTs to your `http://moxy-host:port/__setup__` endpoint with a POST variable named `mock_text`.
+
+Below are some examples of `mock_text` (in each, second line describes result).
+
+  stub_request :get, "http://google.com"
+  (Returns an empty content with 200 HTTP status code)
+
+
+  stub_request(:get, "http://google.com").to_return(:body => "boo hoo!")
+  (Returns boo hoo! as content)
+
+
+  stub_request(:get, "http://google.com").to_return(:body => "boo hoo!", :code => 500)
+  (Returns boo hoo! as content)
 
 
 ## Contributing
