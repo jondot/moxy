@@ -62,17 +62,19 @@ A web app is great for a dedicated integration server. Moxy will run on any rack
 
 Below are some examples of `mock_text` (in each, second line describes result).
 
-  stub_request :get, "http://google.com"
-  (Returns an empty content with 200 HTTP status code)
+    stub_request :get, "http://google.com"
+    (Returns an empty content with 200 HTTP status code)
 
 
-  stub_request(:get, "http://google.com").to_return(:body => "boo hoo!")
-  (Returns boo hoo! as content)
+    stub_request(:get, "http://google.com").to_return(:body => "boo hoo!")
+    (Returns boo hoo! as content)
 
 
-  stub_request(:get, "http://google.com").to_return(:body => "boo hoo!", :code => 500)
-  (Returns boo hoo! as content)
+    stub_request(:get, "http://google.com").to_return(:body => "boo hoo!", :code => 500)
+    (Returns boo hoo! as content)
 
+Since currently `moxy` uses [WebMock](https://github.com/bblimke/webmock) under the hood (that may change), this will be WebMock's syntax, and you can go learn about it
+for more examples.
 
 ## Contributing
 
