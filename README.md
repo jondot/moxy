@@ -4,7 +4,7 @@ Moxy (or `moxy`) is a programmable mock proxy. It is an HTTP proxy exposing web 
 
 For example, you might want to set up that a request to `http://google.com` will return the text `boo hoo`. Thats easy:
 
-  $ curl -d "mock_text=stub_request(:get, 'http://google.com').to_return(:body=>'boo hoo')" http://localhost:9292/__setup__ 
+    $ curl -d "mock_text=stub_request(:get, 'http://google.com').to_return(:body=>'boo hoo')" http://localhost:9292/__setup__ 
 
 However, moxy was not made just for one-offs. It was made in order to allow you to use such things in automated integration tests.
 
