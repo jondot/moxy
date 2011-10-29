@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'rack-flash'
-require 'sinatra/reloader'
 require 'moxy/sandbox_eval'
 
 
@@ -12,9 +11,6 @@ module Moxy
     enable :sessions
     use Rack::Flash
 
-    configure(:development) do
-      register Sinatra::Reloader
-    end
 
     helpers do
       include Rack::Utils

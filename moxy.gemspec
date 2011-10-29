@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency "webmock"
 
 
-  s.add_development_dependency "sinatra-reloader"
   s.add_development_dependency "rack-test"
   s.add_development_dependency "rr"
   s.add_development_dependency "watchr"
