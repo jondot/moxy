@@ -76,6 +76,12 @@ Below are some examples of `mock_text` (in each, second line describes result).
 Since currently `moxy` uses [WebMock](https://github.com/bblimke/webmock) under the hood (that may change), this will be WebMock's syntax, and you can go learn about it
 for more examples.
 
+## Moxy Console
+If you access `http://moxy-host:port/__setup__` in your browser, you'll be presented with the moxy console:
+![](https://github.com/jondot/moxy/tree/master/examples/console1.png)
+![](https://github.com/jondot/moxy/tree/master/examples/console2.png)
+
+
 ## Contributing
 
 Fork, implement, add tests, pull request, get my everlasting thanks and a respectable place here :).
