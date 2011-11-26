@@ -78,8 +78,8 @@ for more examples.
 
 ## Moxy Console
 If you access `http://moxy-host:port/__setup__` in your browser, you'll be presented with the moxy console:
-![](https://github.com/jondot/moxy/tree/master/examples/console1.png)
-![](https://github.com/jondot/moxy/tree/master/examples/console2.png)
+![](https://github.com/jondot/moxy/raw/master/examples/console1.png)
+![](https://github.com/jondot/moxy/raw/master/examples/console2.png)
 
 
 ## Contributing
