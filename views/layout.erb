@@ -39,14 +39,14 @@
         <div class="span16">
           <h1>moxy <em><%= @page %></em></h1>
           <br/>
-          <% if flash.has? :error %>
+          <% if flash.has_key? :error %>
             <div data-alert class="alert-message error">
               <a class="close" href="#">×</a>
               <p><%= flash[:error] %></p>
             </div>
           <% end %>
 
-          <% if flash.has? :notice %>
+          <% if flash.has_key? :notice %>
             <div data-alert class="alert-message success">
               <a class="close" href="#">×</a>
               <p><%= flash[:notice] %></p>

@@ -9,7 +9,7 @@ module Moxy
     set :public_folder, File.expand_path("../../public", filedir)
     set :views, File.expand_path("../../views", filedir)
     enable :sessions
-    use Sinatra::Flash
+    register Sinatra::Flash
 
 
     helpers do
