@@ -86,6 +86,10 @@ If you access `http://moxy-host:port/__setup__` in your browser, you'll be prese
 
 Fork, implement, add tests, pull request, get my everlasting thanks and a respectable place here :).
 
+### Contributions (Thanks!)
+
+* github.com/omcnet
+
 
 ## Copyright
 
