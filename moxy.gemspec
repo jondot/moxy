@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
   s.add_dependency "sinatra"
-  s.add_dependency "rack-flash"
+  s.add_dependency "sinatra-flash"
   s.add_dependency "fakefs"
   s.add_dependency "webmock"
 
