@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'rack-flash'
+require 'sinatra/flash'
 require 'moxy/sandbox_eval'
 
 
@@ -9,7 +9,7 @@ module Moxy
     set :public_folder, File.expand_path("../../public", filedir)
     set :views, File.expand_path("../../views", filedir)
     enable :sessions
-    use Rack::Flash
+    register Sinatra::Flash
 
 
     helpers do
